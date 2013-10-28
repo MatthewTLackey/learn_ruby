@@ -23,10 +23,10 @@ describe "#translate" do
     s.should == "errychay"
   end
 
-  # it "translates two words" do
-  #   s = translate("eat pie")
-  #   s.should == "eatay iepay"
-  # end
+  it "translates two words" do
+    s = translate("eat pie")
+    s.should == "eatay iepay"
+  end
 
   # it "translates a word beginning with three consonants" do
   #   translate("three").should == "eethray"
