@@ -1,10 +1,13 @@
 def translate(string)
-  string.split(" ")
-  if is_vowel?(string[0])
-    begins_with_vowel(string)
-  else
-    begins_with_consonant(string)
-  end
+  many_words = string.split(" ")
+  translated_words = many_words.map{|string|
+    if is_vowel?(string[0])
+      begins_with_vowel(string)
+    else
+      begins_with_consonant(string)
+    end
+  }.join(" ")
+  translated_words
 end
 
 
@@ -14,13 +17,19 @@ def begins_with_vowel(string)
 end
 
 def begins_with_consonant(string)
-  counter = 0
+  
+  # until is_vowel?(string[0])
+  #   string("").split.rotate!.join("")
+  # end
+
   if !is_vowel?(string[0]) && !is_vowel?(string[1])
-    return_val = string.split("").rotate.rotate.join << "ay"
+    return_val = string.split("").rotate!.rotate!.join << "ay"
   else
-    return_val = string.split("").rotate.join << "ay"
+    return_val = string.split("").rotate!.join << "ay"
   end
-  #each{|x| counter += 1 until x.is_vowel?(x)}
+
+
+  # each{|x| counter += 1 until x.is_vowel?(x)}
   # return_val = string.split
   # counter.times{return_val.rotate!}
   # return_val.join! << "ay"
@@ -36,4 +45,4 @@ end
     end
   end
 
-translate("banana")
+puts translate("banana")
