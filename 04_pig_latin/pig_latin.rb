@@ -21,10 +21,15 @@ def begins_with_consonant(string)
   # until is_vowel?(string[0])
   #   string("").split.rotate!.join("")
   # end
-
-  if !is_vowel?(string[0]) && !is_vowel?(string[1])
+  if string[0] == "q"
     return_val = string.split("").rotate!.rotate!.join << "ay"
-  else
+  elsif string[1] == "q"
+    return_val = string.split("").rotate!.rotate!.rotate!.join<<"ay"
+  elsif (!is_vowel?(string[0]) && !is_vowel?(string[1]) && !is_vowel?(string[2]))
+    return_val = string.split("").rotate!.rotate!.rotate!.join << "ay"
+  elsif !is_vowel?(string[0]) && !is_vowel?(string[1])
+    return_val = string.split("").rotate!.rotate!.join << "ay"
+   else
     return_val = string.split("").rotate!.join << "ay"
   end
 
